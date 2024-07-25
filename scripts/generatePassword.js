@@ -55,62 +55,70 @@
     function initResizer(rangeSlider, rangeValue, rangeBar, passwordInput) {
         // position actuelle de la souris en x
         let horizontalPosition, actualWidth, actualPos, actualBarWidth;
-
+    
         // fonction lorsqu'on appuie sur le resizer
         function resizerPressed(evt) {
-            horizontalPosition = evt.clientX;
+            evt.preventDefault(); // prevent default behavior to avoid unexpected behavior on touch devices
+            horizontalPosition = evt.clientX || evt.touches[0].clientX; // deuxième partie pour les mobiles
             let rangeValueWidth = window.getComputedStyle(rangeValue).width; // width du rangeValue
             actualWidth = parseInt(rangeValueWidth, 10); // convertir width du rangeValue en nombre
-
+    
             let rangeSliderPosition = window.getComputedStyle(rangeSlider).left; // position du slider
             actualPos = parseInt(rangeSliderPosition, 10); // convertir position du slider en nombre
-
+    
             let rangeBarWidth = window.getComputedStyle(rangeBar).width; // width du rangeBar
             actualBarWidth = parseInt(rangeBarWidth, 10); // convertir width du rangeBar
-
+    
             document.addEventListener("mousemove", resizerMove);
-            document.addEventListener("mouseup", resizerLeave);
+            document.addEventListener("touchmove", resizerMove);
             document.addEventListener("mouseup", resizerLeave);
             document.addEventListener("touchend", resizerLeave);
         }
-
+    
         function resizerMove(evt) {
-            let distanceSouris = evt.clientX - horizontalPosition; // distance de la souris par rapport à la position initiale
+            let clientX = evt.clientX || evt.touches[0].clientX;
+            let distanceSouris = clientX - horizontalPosition; // distance de la souris par rapport à la position initiale
             let newWidth = actualWidth + distanceSouris; // largeur complète
             let newPos = actualPos + distanceSouris; // nouvelle position du slider
-
+    
             if (newWidth > 0 && newWidth < actualBarWidth) {
                 rangeValue.style.width = `${newWidth}px`;
             }
-
+    
             if (newPos > -16 && newPos < actualBarWidth - 16) {
                 rangeSlider.style.left = `${newPos}px`; // déplacer le slider avec la nouvelle largeur du rangeValue
                 generatePassword();
             }
-
+    
             // changer value input en fonction de la largeur du rangeValue entre 8 et 24
             let passwordLength = Math.floor((newWidth / actualBarWidth) * (24 - 8)) + 8;
             passwordLength = Math.max(8, Math.min(24, passwordLength)); // s'assurer que la longueur est entre 8 et 24
             passwordInput.setAttribute('value', passwordLength); // changer la valeur de l'input en fonction de la largeur du rangeValue
-
+    
             // sauvegarder la largeur du rangeValue et du rangeSlider dans le sessionStorage
             sessionStorage.setItem('rangeSliderPosition', newPos);
             sessionStorage.setItem('rangeValueWidth', newWidth);
             sessionStorage.setItem('passwordLength', passwordLength);
-            
         }
-
+    
         function resizerLeave() {
-            // remove event mousemove && mouseup
             document.removeEventListener("mouseup", resizerLeave);
             document.removeEventListener("mousemove", resizerMove);
             document.removeEventListener("touchend", resizerLeave);
             document.removeEventListener("touchmove", resizerMove);
         }
-
+    
         rangeSlider.addEventListener("mousedown", resizerPressed);
         rangeSlider.addEventListener("touchstart", resizerPressed);
     }
+    
+    initResizer(
+        document.querySelector('.range-slider'),
+        document.querySelector('.range-value'),
+        document.querySelector('.range-bar'),
+        document.querySelector('#password-lenght')
+    );
+    
 
     function generatePassword() {
         let lengthPassword = document.querySelector('.password-input').value;
