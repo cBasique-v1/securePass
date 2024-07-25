@@ -1561,6 +1561,10 @@ select {
     position: static;
   }
 
+  .lg\:block {
+    display: block;
+  }
+
   .lg\:grid {
     display: grid;
   }
