@@ -111,14 +111,7 @@
         rangeSlider.addEventListener("mousedown", resizerPressed);
         rangeSlider.addEventListener("touchstart", resizerPressed);
     }
-    
-    initResizer(
-        document.querySelector('.range-slider'),
-        document.querySelector('.range-value'),
-        document.querySelector('.range-bar'),
-        document.querySelector('#password-lenght')
-    );
-    
+
 
     function generatePassword() {
         let lengthPassword = document.querySelector('.password-input').value;
