@@ -1135,14 +1135,6 @@ select {
   grid-template-rows: auto 1fr auto;
 }
 
-.grid-rows-\[auto\] {
-  grid-template-rows: auto;
-}
-
-.grid-rows-\[auto_1fr\] {
-  grid-template-rows: auto 1fr;
-}
-
 .flex-col {
   flex-direction: column;
 }
@@ -1384,21 +1376,8 @@ select {
   line-height: 1.75rem;
 }
 
-.text-sm {
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-}
-
 .font-bold {
   font-weight: 700;
-}
-
-.font-light {
-  font-weight: 300;
-}
-
-.font-medium {
-  font-weight: 500;
 }
 
 .text-black {
@@ -1439,22 +1418,6 @@ select {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-
-.text-white\/40 {
-  color: rgb(255 255 255 / 0.4);
-}
-
-.text-black\/40 {
-  color: rgb(0 0 0 / 0.4);
-}
-
-.text-black\/60 {
-  color: rgb(0 0 0 / 0.6);
-}
-
-.text-zinc-700\/40 {
-  color: rgb(63 63 70 / 0.4);
 }
 
 .text-zinc-500\/40 {
@@ -1652,31 +1615,17 @@ select {
     gap: 0.5rem;
   }
 
-  .lg\:gap-7 {
-    gap: 1.75rem;
-  }
-
-  .lg\:gap-10 {
-    gap: 2.5rem;
-  }
-
   .lg\:gap-6 {
     gap: 1.5rem;
   }
 
-  .lg\:py-10 {
-    padding-top: 2.5rem;
-    padding-bottom: 2.5rem;
+  .lg\:gap-7 {
+    gap: 1.75rem;
   }
 
   .lg\:py-16 {
     padding-top: 4rem;
     padding-bottom: 4rem;
-  }
-
-  .lg\:text-3xl {
-    font-size: 1.875rem;
-    line-height: 2.25rem;
   }
 
   .lg\:text-4xl {
