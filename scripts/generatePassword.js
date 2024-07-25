@@ -70,6 +70,8 @@
 
             document.addEventListener("mousemove", resizerMove);
             document.addEventListener("mouseup", resizerLeave);
+            document.addEventListener("mouseup", resizerLeave);
+            document.addEventListener("touchend", resizerLeave);
         }
 
         function resizerMove(evt) {
@@ -102,9 +104,12 @@
             // remove event mousemove && mouseup
             document.removeEventListener("mouseup", resizerLeave);
             document.removeEventListener("mousemove", resizerMove);
+            document.removeEventListener("touchend", resizerLeave);
+            document.removeEventListener("touchmove", resizerMove);
         }
 
         rangeSlider.addEventListener("mousedown", resizerPressed);
+        rangeSlider.addEventListener("touchstart", resizerPressed);
     }
 
     function generatePassword() {
