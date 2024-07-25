@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description"
+            content="Generate secure passwords with our easy-to-use password generator tool. Customize length and character types for optimal security.">
+        <meta name="keywords"
+            content="password generator, secure passwords, password tool">
+        <link rel="stylesheet" href="./css/style.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap"
+            rel="stylesheet" />
+        <script src="./scripts/openMenu.js"></script>
+        <script src="./scripts/generatePassword.js"></script>
+        <script src="./scripts/setCurrentYear.js"></script>
+        <title>Password generator - Mini projet portfolio</title>
+    </head>
+    <body class="min-h-dvh grid grid-rows-[auto_1fr_auto] items-center">
+        <header class="w-full lg:grid grid-cols-[auto_1fr]">
+            <div
+                class="sticky top-0 left-0 flex justify-between items-center p-4">
+                <button class="buttonMenu lg:hidden">
+                    <svg width="35" height="30" viewBox="0 0 35 30" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M0 2.5C0 1.11719 1.11719 0 2.5 0H32.5C33.8828 0 35 1.11719 35 2.5C35 3.88281 33.8828 5 32.5 5H2.5C1.11719 5 0 3.88281 0 2.5ZM0 15C0 13.6172 1.11719 12.5 2.5 12.5H32.5C33.8828 12.5 35 13.6172 35 15C35 16.3828 33.8828 17.5 32.5 17.5H2.5C1.11719 17.5 0 16.3828 0 15ZM35 27.5C35 28.8828 33.8828 30 32.5 30H2.5C1.11719 30 0 28.8828 0 27.5C0 26.1172 1.11719 25 2.5 25H32.5C33.8828 25 35 26.1172 35 27.5Z"
+                            fill="url(#paint0_linear_3_118)" />
+                        <defs>
+                            <lineargradient id="paint0_linear_3_118" x1="0"
+                                y1="0" x2="35" y2="30"
+                                gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#1865FB" />
+                                <stop offset="1" stop-color="#39C4FF" />
+                            </lineargradient>
+                        </defs>
+                    </svg>
+                </button>
+                <a href="./index.html">
+                    <svg width="50" height="50" viewBox="0 0 745 910"
+                        version="1.1" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                        xml:space="preserve" xmlns:serif="http://www.serif.com/"
+                        style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
+                        <g transform="matrix(1,0,0,1,-4453,-89.8681)">
+                            <g id="Plan-de-travail1" serif:id="Plan de travail1"
+                                transform="matrix(1,0,0,1,4285.34,0)">
+                                <rect x="0" y="0" width="1080" height="1080"
+                                    style="fill:none;" />
+                                <g
+                                    transform="matrix(-1.95182,2.3903e-16,-1.87785e-16,-1.53338,10339,1345.15)">
+                                    <path
+                                        d="M5032.08,383.576L5165.92,451.327C5114.6,338.04 5020.44,243.491 5020.44,243.491C5020.44,243.491 4931.24,303.414 4879.59,461.987M4944.94,644.035L4858.2,602.673C4857.37,618.771 4843.73,690.429 4843.73,707.639L5020.44,800.748L5197.15,708.028C5197.15,674.199 5195.46,642.541 5192.4,612.953L4879.59,461.987"
+                                        style="fill:none;stroke:url(#_Linear1);stroke-width:31.26px;" />
+                                </g>
+                            </g>
+                        </g>
+                        <defs>
+                            <lineargradient id="_Linear1" x1="0" y1="0" x2="1"
+                                y2="0" gradientUnits="userSpaceOnUse"
+                                gradientTransform="matrix(353.426,0,0,557.258,4843.73,522.119)"><stop
+                                    offset="0"
+                                    style="stop-color:rgb(24,101,251);stop-opacity:1" /><stop
+                                    offset="1"
+                                    style="stop-color:rgb(57,196,255);stop-opacity:1" /></lineargradient>
+                        </defs>
+                    </svg>
+                </a>
+            </div>
+            <div
+                class="overlay hidden -translate-x-full fixed top-0 left-0 w-full h-full bg-black opacity-30 z-50 transition-all duration-300 ease-in-out"></div>
+            <div id="menu"
+                class="fixed lg:static top-0 left-0 w-2/3 lg:w-full h-dvh lg:h-fit p-4 grid grid-rows-[auto_1fr_auto] lg:grid-rows-1 lg:grid-cols-[1fr_auto] bg-white z-50 rounded-r-xl hidden lg:grid -translate-x-full lg:translate-x-0 transition-all duration-300 ease-in-out">
+                <button class="buttonMenu lg:hidden">
+                    <svg width="30" height="30" viewBox="0 0 322 322"
+                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M311.6 55.6C324.1 43.1 324.1 22.8 311.6 10.3C299.1 -2.20001 278.8 -2.20001 266.3 10.3L161 115.7L55.6 10.4C43.1 -2.10001 22.8 -2.10001 10.3 10.4C-2.19995 22.9 -2.19995 43.2 10.3 55.7L115.7 161L10.4001 266.4C-2.09995 278.9 -2.09995 299.2 10.4001 311.7C22.9001 324.2 43.2 324.2 55.7 311.7L161 206.3L266.4 311.6C278.9 324.1 299.2 324.1 311.7 311.6C324.2 299.1 324.2 278.8 311.7 266.3L206.3 161L311.6 55.6Z"
+                            fill="url(#paint0_linear_4_121)" />
+                        <defs>
+                            <lineargradient id="paint0_linear_4_121" x1="1"
+                                y1="0.999999" x2="321" y2="321"
+                                gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#1865FB" />
+                                <stop offset="1" stop-color="#39C4FF" />
+                            </lineargradient>
+                        </defs>
+                    </svg>
+                </button>
+                <nav
+                    class="flex flex-col lg:flex-row justify-center items-start">
+                    <ul
+                        class="flex flex-col lg:flex-row justify-center items-start gap-8 pl-6">
+                        <li>
+                            <a
+                                href="https://perso.univ-lemans.fr/~i2300507/portfolio_24_26/"
+                                class="text-3xl">Mon portfolio</a>
+                        </li>
+                        <li>
+                            <a
+                                href="https://perso.univ-lemans.fr/~i2300507/portfolio_24_26/contact.php"
+                                class="text-3xl">Contact</a>
+                        </li>
+                    </ul>
+                </nav>
+                <ul class="flex justify-around items-center lg:gap-7">
+                    <li>
+                        <a href="https://github.com/cBasique-v1">
+                            <svg width="40" height="40" viewBox="0 0 67 66"
+                                fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M22.4035 52.5098C22.4035 52.7786 22.0929 52.9936 21.7013 52.9936C21.2557 53.034 20.9451 52.8189 20.9451 52.5098C20.9451 52.241 21.2557 52.0259 21.6473 52.0259C22.0524 51.9856 22.4035 52.2006 22.4035 52.5098ZM18.2037 51.905C18.1092 52.1738 18.3793 52.4829 18.7844 52.5635C19.1355 52.6979 19.5406 52.5635 19.6217 52.2947C19.7027 52.0259 19.4461 51.7168 19.041 51.5958C18.6899 51.5017 18.2982 51.6361 18.2037 51.905ZM24.1726 51.6765C23.781 51.7705 23.5109 52.0259 23.5514 52.3351C23.5919 52.6039 23.943 52.7786 24.3481 52.6845C24.7398 52.5904 25.0099 52.3351 24.9693 52.0662C24.9288 51.8109 24.5642 51.6361 24.1726 51.6765ZM33.0584 0.171875C14.328 0.171875 0 14.3249 0 32.9671C0 47.8728 9.42596 60.6279 22.8897 65.1171C24.6182 65.4263 25.2259 64.3644 25.2259 63.4908C25.2259 62.6575 25.1854 58.0608 25.1854 55.2382C25.1854 55.2382 15.7324 57.2543 13.7473 51.2329C13.7473 51.2329 12.2078 47.3217 9.99314 46.3136C9.99314 46.3136 6.90067 44.2035 10.2092 44.2438C10.2092 44.2438 13.5718 44.5126 15.4218 47.7115C18.3793 52.8996 23.3353 51.4076 25.2664 50.5206C25.577 48.3701 26.4548 46.8781 27.4271 45.9911C19.8782 45.1577 12.2619 44.069 12.2619 31.1391C12.2619 27.443 13.2882 25.5882 15.4489 23.2226C15.0977 22.349 13.9499 18.7469 15.8 14.0964C18.6223 13.2227 25.1179 17.7254 25.1179 17.7254C27.8187 16.9727 30.7221 16.5829 33.5986 16.5829C36.475 16.5829 39.3784 16.9727 42.0792 17.7254C42.0792 17.7254 48.5748 13.2093 51.3971 14.0964C53.2472 18.7603 52.0994 22.349 51.7483 23.2226C53.9089 25.6016 55.2323 27.4564 55.2323 31.1391C55.2323 44.1094 47.2784 45.1443 39.7295 45.9911C40.9719 47.0529 42.0252 49.069 42.0252 52.2275C42.0252 56.757 41.9847 62.3618 41.9847 63.4639C41.9847 64.3376 42.6059 65.3994 44.3209 65.0902C57.8252 60.6279 66.981 47.8728 66.981 32.9671C66.981 14.3249 51.7888 0.171875 33.0584 0.171875ZM13.1261 46.5287C12.9506 46.6631 12.9911 46.9722 13.2207 47.2276C13.4367 47.4427 13.7473 47.5367 13.9229 47.362C14.0984 47.2276 14.0579 46.9185 13.8283 46.6631C13.6123 46.448 13.3017 46.354 13.1261 46.5287ZM11.6677 45.44C11.5731 45.6147 11.7082 45.8298 11.9783 45.9642C12.1943 46.0986 12.4644 46.0583 12.5589 45.8701C12.6535 45.6954 12.5184 45.4803 12.2483 45.3459C11.9783 45.2653 11.7622 45.3056 11.6677 45.44ZM16.043 50.2249C15.827 50.3996 15.908 50.8028 16.2186 51.0582C16.5292 51.3673 16.9208 51.4076 17.0964 51.1926C17.2719 51.0179 17.1909 50.6146 16.9208 50.3593C16.6237 50.0501 16.2186 50.0098 16.043 50.2249ZM14.5036 48.2491C14.2875 48.3835 14.2875 48.733 14.5036 49.0421C14.7196 49.3512 15.0842 49.4856 15.2598 49.3512C15.4759 49.1765 15.4759 48.827 15.2598 48.5179C15.0707 48.2088 14.7196 48.0744 14.5036 48.2491Z"
+                                    fill="url(#paint0_linear_3_112)" />
+                                <defs>
+                                    <lineargradient id="paint0_linear_3_112"
+                                        x1="3.22794e-07" y1="0.0229159"
+                                        x2="66.7333" y2="65.0229"
+                                        gradientUnits="userSpaceOnUse">
+                                        <stop stop-color="#1865FB" />
+                                        <stop offset="1" stop-color="#39C4FF" />
+                                    </lineargradient>
+                                </defs>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://linkedin.com/in/maelroulette">
+                            <svg width="40" height="40" viewBox="0 0 65 65"
+                                fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M60.3571 0H4.62835C2.07478 0 0 2.1038 0 4.68638V60.3136C0 62.8962 2.07478 65 4.62835 65H60.3571C62.9107 65 65 62.8962 65 60.3136V4.68638C65 2.1038 62.9107 0 60.3571 0ZM19.6451 55.7143H10.0112V24.6942H19.6596V55.7143H19.6451ZM14.8281 20.4576C11.7377 20.4576 9.24219 17.9475 9.24219 14.8717C9.24219 11.7958 11.7377 9.28571 14.8281 9.28571C17.904 9.28571 20.4141 11.7958 20.4141 14.8717C20.4141 17.9621 17.9185 20.4576 14.8281 20.4576ZM55.7578 55.7143H46.1239V40.625C46.1239 37.0268 46.0513 32.3984 41.1183 32.3984C36.0982 32.3984 35.3292 36.3158 35.3292 40.3638V55.7143H25.6953V24.6942H34.9375V28.9308H35.0681C36.3594 26.4933 39.5078 23.9252 44.1942 23.9252C53.9442 23.9252 55.7578 30.3527 55.7578 38.7098V55.7143Z"
+                                    fill="url(#paint0_linear_3_114)" />
+                                <defs>
+                                    <lineargradient id="paint0_linear_3_114"
+                                        x1="0" y1="0" x2="65" y2="65"
+                                        gradientUnits="userSpaceOnUse">
+                                        <stop stop-color="#1865FB" />
+                                        <stop offset="1" stop-color="#39C4FF" />
+                                    </lineargradient>
+                                </defs>
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </header>
+        <main class="w-4/5 lg:w-1/3 mx-auto">
+            <h1
+                class="text-2xl lg:text-4xl text-center pb-6 lg:py-16">Générateur
+                de mot de passe</h1>
+            <form class="form-generate">
+                <div class="grid grid-cols-[1fr_auto] gap-4">
+                    <div
+                        class="flex justify-between items-center gap-2 border-2 border-blue_sky-200 rounded-full p-2 px-3">
+                        <p class="showPassword w-full text-lg">Le mot de
+                            passe</p>
+                        <button class="regenerate">
+                            <svg width="30" height="30" viewBox="0 0 32 31"
+                                fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M7.56511 8.85788H11.0339C12.2545 8.85788 13.2407 9.84728 13.2407 11.0719C13.2407 12.2966 12.2545 13.286 11.0339 13.286H2.20678C0.986154 13.286 0 12.2966 0 11.0719V2.21577C0 0.991128 0.986154 0.00172982 2.20678 0.00172982C3.4274 0.00172982 4.41356 0.991128 4.41356 2.21577V5.75823L5.62728 4.54051C11.6614 -1.5135 21.4402 -1.5135 27.4744 4.54051C33.5085 10.5945 33.5085 20.4055 27.4744 26.4595C21.4402 32.5135 11.6614 32.5135 5.62728 26.4595C4.76526 25.5946 4.76526 24.1901 5.62728 23.3252C6.48931 22.4604 7.88923 22.4604 8.75125 23.3252C13.0614 27.6495 20.0472 27.6495 24.3573 23.3252C28.6674 19.0009 28.6674 11.9921 24.3573 7.66784C20.0472 3.34354 13.0614 3.34354 8.75125 7.66784L7.56511 8.85788Z"
+                                    fill="url(#paint0_linear_2_28)" />
+                                <defs>
+                                    <lineargradient id="paint0_linear_2_28"
+                                        x1="-3.49317e-07" y1="3" x2="32"
+                                        y2="27.5"
+                                        gradientUnits="userSpaceOnUse">
+                                        <stop stop-color="#1865FB" />
+                                        <stop offset="1" stop-color="#39C4FF" />
+                                    </lineargradient>
+                                </defs>
+                            </svg>
+
+                        </button>
+                    </div>
+                    <button
+                        class="copyPassword p-1 text-white bg-gradient-to-tl from-blue_sky-200 to-blue_sky-100 py-1 px-4 rounded-full">
+                        Copier
+                    </button>
+                </div>
+                <ul
+                    class="flex flex-col justify-center items-start gap-6 py-6 w-full">
+                    <li
+                        class="w-full flex flex-col justify-center items-start gap-4">
+                        <label for="password-lenght" class="text-xl">Longueur du
+                            mot de
+                            passe</label>
+                        <div
+                            class="w-full grid grid-cols-[auto_1fr] items-center gap-8">
+                            <input type="number" name="password-lenght"
+                                id="password-lenght" step="1" min="8"
+                                max="24" disabled
+                                class="password-input h-10 w-16 border-2 border-blue_sky-200 text-center rounded-full">
+                            <div class="range-container w-full">
+                                <div
+                                    class="range-bar bg-zinc-200 rounded-full h-2 w-full relative">
+                                    <div
+                                        class="range-value bg-gradient-to-l from-blue_sky-200 to-blue_sky-100 rounded-full h-2 max-h-full z-10 w-0"></div>
+                                    <div
+                                        class="range-slider bg-blue_sky-200 h-8 w-8 rounded-full absolute -top-3 -left-4 cursor-col-resize hover:bg-blue_sky-100 z-20"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <ul
+                            class="flex flex-col lg:flex-row justify-center lg:justify-between items-start lg:items-center gap-6 py-6 w-full">
+                            <li
+                                class="w-full grid grid-cols-[1fr_2fr] items-center lg:justify-items-center gap-8 lg:gap-2">
+                                <label for="majInput"
+                                    class="text-xl">Majuscules</label>
+                                <input id="majInput" type="checkbox"
+                                    name="majInput"
+                                    class="rounded border-gray-300 text-blue_sky-200 shadow-sm focus:border-indigo-300 focus:ring focus:ring-offset-0 focus:ring-blue_sky-100 focus:ring-opacity-50 w-6 h-6"
+                                    checked>
+                            </li>
+                            <li
+                                class="w-full grid grid-cols-[1fr_2fr] items-center lg:justify-items-center gap-8 lg:gap-2">
+                                <label for="nbInput"
+                                    class="text-xl">Chiffres</label>
+                                <input id="nbInput" type="checkbox"
+                                    name="nbInput"
+                                    class="rounded border-gray-300 text-blue_sky-200 shadow-sm focus:border-indigo-300 focus:ring focus:ring-offset-0 focus:ring-blue_sky-100 focus:ring-opacity-50 w-6 h-6"
+                                    checked>
+                            </li>
+                            <li
+                                class="w-full grid grid-cols-[1fr_2fr] items-center lg:justify-items-center gap-8 lg:gap-2">
+                                <label for="symbInput"
+                                    class="text-xl">Symboles</label>
+                                <input id="symbInput" type="checkbox"
+                                    name="symbInput"
+                                    class="rounded border-gray-300 text-blue_sky-200 shadow-sm focus:border-indigo-300 focus:ring focus:ring-offset-0 focus:ring-blue_sky-100 focus:ring-opacity-50 w-6 h-6"
+                                    checked>
+                            </li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </form>
+        </main>
+        <footer class="w-full p-6">
+            <div
+                class="w-full flex flex-col justify-center items-center gap-4 lg:gap-6">
+                <ul class="w-full flex justify-center items-center gap-6">
+                    <li>
+                        <a href="https://github.com/cBasique-v1"
+                            target="_blank">
+                            <svg width="40" height="40" viewBox="0 0 67 66"
+                                fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M22.4035 52.5098C22.4035 52.7786 22.0929 52.9936 21.7013 52.9936C21.2557 53.034 20.9451 52.8189 20.9451 52.5098C20.9451 52.241 21.2557 52.0259 21.6473 52.0259C22.0524 51.9856 22.4035 52.2006 22.4035 52.5098ZM18.2037 51.905C18.1092 52.1738 18.3793 52.4829 18.7844 52.5635C19.1355 52.6979 19.5406 52.5635 19.6217 52.2947C19.7027 52.0259 19.4461 51.7168 19.041 51.5958C18.6899 51.5017 18.2982 51.6361 18.2037 51.905ZM24.1726 51.6765C23.781 51.7705 23.5109 52.0259 23.5514 52.3351C23.5919 52.6039 23.943 52.7786 24.3481 52.6845C24.7398 52.5904 25.0099 52.3351 24.9693 52.0662C24.9288 51.8109 24.5642 51.6361 24.1726 51.6765ZM33.0584 0.171875C14.328 0.171875 0 14.3249 0 32.9671C0 47.8728 9.42596 60.6279 22.8897 65.1171C24.6182 65.4263 25.2259 64.3644 25.2259 63.4908C25.2259 62.6575 25.1854 58.0608 25.1854 55.2382C25.1854 55.2382 15.7324 57.2543 13.7473 51.2329C13.7473 51.2329 12.2078 47.3217 9.99314 46.3136C9.99314 46.3136 6.90067 44.2035 10.2092 44.2438C10.2092 44.2438 13.5718 44.5126 15.4218 47.7115C18.3793 52.8996 23.3353 51.4076 25.2664 50.5206C25.577 48.3701 26.4548 46.8781 27.4271 45.9911C19.8782 45.1577 12.2619 44.069 12.2619 31.1391C12.2619 27.443 13.2882 25.5882 15.4489 23.2226C15.0977 22.349 13.9499 18.7469 15.8 14.0964C18.6223 13.2227 25.1179 17.7254 25.1179 17.7254C27.8187 16.9727 30.7221 16.5829 33.5986 16.5829C36.475 16.5829 39.3784 16.9727 42.0792 17.7254C42.0792 17.7254 48.5748 13.2093 51.3971 14.0964C53.2472 18.7603 52.0994 22.349 51.7483 23.2226C53.9089 25.6016 55.2323 27.4564 55.2323 31.1391C55.2323 44.1094 47.2784 45.1443 39.7295 45.9911C40.9719 47.0529 42.0252 49.069 42.0252 52.2275C42.0252 56.757 41.9847 62.3618 41.9847 63.4639C41.9847 64.3376 42.6059 65.3994 44.3209 65.0902C57.8252 60.6279 66.981 47.8728 66.981 32.9671C66.981 14.3249 51.7888 0.171875 33.0584 0.171875ZM13.1261 46.5287C12.9506 46.6631 12.9911 46.9722 13.2207 47.2276C13.4367 47.4427 13.7473 47.5367 13.9229 47.362C14.0984 47.2276 14.0579 46.9185 13.8283 46.6631C13.6123 46.448 13.3017 46.354 13.1261 46.5287ZM11.6677 45.44C11.5731 45.6147 11.7082 45.8298 11.9783 45.9642C12.1943 46.0986 12.4644 46.0583 12.5589 45.8701C12.6535 45.6954 12.5184 45.4803 12.2483 45.3459C11.9783 45.2653 11.7622 45.3056 11.6677 45.44ZM16.043 50.2249C15.827 50.3996 15.908 50.8028 16.2186 51.0582C16.5292 51.3673 16.9208 51.4076 17.0964 51.1926C17.2719 51.0179 17.1909 50.6146 16.9208 50.3593C16.6237 50.0501 16.2186 50.0098 16.043 50.2249ZM14.5036 48.2491C14.2875 48.3835 14.2875 48.733 14.5036 49.0421C14.7196 49.3512 15.0842 49.4856 15.2598 49.3512C15.4759 49.1765 15.4759 48.827 15.2598 48.5179C15.0707 48.2088 14.7196 48.0744 14.5036 48.2491Z"
+                                    fill="url(#paint0_linear_3_112)" />
+                                <defs>
+                                    <lineargradient id="paint0_linear_3_112"
+                                        x1="3.22794e-07" y1="0.0229159"
+                                        x2="66.7333" y2="65.0229"
+                                        gradientUnits="userSpaceOnUse">
+                                        <stop stop-color="#1865FB" />
+                                        <stop offset="1" stop-color="#39C4FF" />
+                                    </lineargradient>
+                                </defs>
+                            </svg>
+                        </a>
+
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/in/maelroulette"
+                            target="_blank">
+                            <svg width="40" height="40" viewBox="0 0 65 65"
+                                fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M60.3571 0H4.62835C2.07478 0 0 2.1038 0 4.68638V60.3136C0 62.8962 2.07478 65 4.62835 65H60.3571C62.9107 65 65 62.8962 65 60.3136V4.68638C65 2.1038 62.9107 0 60.3571 0ZM19.6451 55.7143H10.0112V24.6942H19.6596V55.7143H19.6451ZM14.8281 20.4576C11.7377 20.4576 9.24219 17.9475 9.24219 14.8717C9.24219 11.7958 11.7377 9.28571 14.8281 9.28571C17.904 9.28571 20.4141 11.7958 20.4141 14.8717C20.4141 17.9621 17.9185 20.4576 14.8281 20.4576ZM55.7578 55.7143H46.1239V40.625C46.1239 37.0268 46.0513 32.3984 41.1183 32.3984C36.0982 32.3984 35.3292 36.3158 35.3292 40.3638V55.7143H25.6953V24.6942H34.9375V28.9308H35.0681C36.3594 26.4933 39.5078 23.9252 44.1942 23.9252C53.9442 23.9252 55.7578 30.3527 55.7578 38.7098V55.7143Z"
+                                    fill="url(#paint0_linear_3_114)" />
+                                <defs>
+                                    <lineargradient id="paint0_linear_3_114"
+                                        x1="0" y1="0" x2="65" y2="65"
+                                        gradientUnits="userSpaceOnUse">
+                                        <stop stop-color="#1865FB" />
+                                        <stop offset="1" stop-color="#39C4FF" />
+                                    </lineargradient>
+                                </defs>
+                            </svg>
+                        </a>
+
+                    </li>
+                </ul>
+                <p class="text-center">
+                    Je vous invite à aller voir mon portfolio pour plus de
+                    projet !
+                </p>
+                <p class="text-zinc-500/40">
+                    @ <span id="current-year"
+                        class="text-zinc-500/40"></span> Maël
+                    Roulette Portfolio
+                </p>
+            </div>
+        </footer>
+
+    </body>
+</html>

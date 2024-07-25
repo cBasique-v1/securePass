@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 745 910" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
+    <g transform="matrix(1,0,0,1,-4453,-89.8681)">
+        <g id="Plan-de-travail1" serif:id="Plan de travail1" transform="matrix(1,0,0,1,4285.34,0)">
+            <rect x="0" y="0" width="1080" height="1080" style="fill:none;"/>
+            <g transform="matrix(-1.95182,2.3903e-16,-1.87785e-16,-1.53338,10339,1345.15)">
+                <path d="M5032.08,383.576L5165.92,451.327C5114.6,338.04 5020.44,243.491 5020.44,243.491C5020.44,243.491 4931.24,303.414 4879.59,461.987M4944.94,644.035L4858.2,602.673C4857.37,618.771 4843.73,690.429 4843.73,707.639L5020.44,800.748L5197.15,708.028C5197.15,674.199 5195.46,642.541 5192.4,612.953L4879.59,461.987" style="fill:none;stroke:url(#_Linear1);stroke-width:31.26px;"/>
+            </g>
+        </g>
+    </g>
+    <defs>
+        <linearGradient id="_Linear1" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse" gradientTransform="matrix(353.426,0,0,557.258,4843.73,522.119)"><stop offset="0" style="stop-color:rgb(24,101,251);stop-opacity:1"/><stop offset="1" style="stop-color:rgb(57,196,255);stop-opacity:1"/></linearGradient>
+    </defs>
+</svg>
