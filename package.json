@@ -5,5 +5,8 @@
   },
   "scripts": {
     "build": "npx tailwindcss -i ./css/style-tailwind.css -o ./css/style.css --watch"
+  },
+  "dependencies": {
+    "flowbite": "^2.4.1"
   }
 }
